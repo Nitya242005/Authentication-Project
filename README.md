@@ -6,7 +6,7 @@
 
 2.) Change the directory to the working directory by 
 
->>>cd FULL AUTHENTICATION/authenticationproject/authenticationproject
+>>>cd FULL AUTHENTICATION/authenticationproject
 
 3.) Install env by 
 
@@ -14,9 +14,9 @@
 
 4.) Be in the same directory 
 
->>>cd FULL AUTHENTICATION/authenticationproject/authenticationproject.
+>>>cd FULL AUTHENTICATION/authenticationproject
 
-5.) Launch env in the above mentioned directory by 
+5.) Launch env in the above-mentioned directory by 
 
 >>>pipenv shell
 
@@ -42,7 +42,7 @@
 
 >>> **Login Required After Signup:** New users must log in again after signing up before accessing the home page.
 
->>> **Email Verification for Password Reset:** Users can only reset their password using the same email linked to their account, preventing unauthorized resets.
+>>> **Email Verification for Password Reset:** To prevent unauthorized resets, Users can only reset their passwords using the same email linked to their accounts.
 
 This authentication system is designed to ensure a secure and seamless user experience while protecting user credentials and access.
 
