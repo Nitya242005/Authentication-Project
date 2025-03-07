@@ -20,23 +20,29 @@ This authentication system is designed to ensure a secure and seamless user expe
 **HOW TO SETUP AND RUN THIS PROJECT**
 
 1.) **Clone the Repository**
+
    git clone <your-repo-url>
+   
    cd full-authentication/authenticationproject
    
 2.) **Create a Virtual Environment**
 
 Ensure you have pipenv installed:
+
    pip install pipenv
 
 Create and activate a virtual environment:
+
    pipenv shell
 
 3.) **Install Dependencies**
+
    pipenv install
 
 4.) **Set Up Environment Variables**
    
 Create a .env file in the project's root directory and add:
+
    SECRET_KEY=your-django-secret-key
    DEBUG=True
    ALLOWED_HOSTS=localhost,127.0.0.1
@@ -48,14 +54,19 @@ Create a .env file in the project's root directory and add:
    EMAIL_HOST_PASSWORD=your-email-password
 
 5.) **Apply Database Migrations**
+
    python manage.py migrate
 
 6.) **Create a Superuser (Optional, for Admin Panel)**
+
    python manage.py createsuperuser
+   
 Follow the prompts to create an admin account.
 
 7.) **Run the Server**
+
    python manage.py runserver
+   
 Access the application at: http://127.0.0.1:8000/
 
 **NOTE**
