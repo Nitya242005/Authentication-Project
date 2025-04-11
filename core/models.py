@@ -11,3 +11,23 @@ class PasswordReset(models.Model):
         return f"Password reset for {self.user.username} at {self.created_when}"   
 
 
+class Athlete(models.Model):
+    name = models.CharField(max_length=100)
+    age = models.IntegerField()
+    sport = models.CharField(max_length=100)
+    level = models.CharField(max_length=50)
+    speed = models.FloatField(null=True, blank=True)     # optional for future use
+    stamina = models.FloatField(null=True, blank=True)   # optional for future use
+
+    def __str__(self):
+        return f"{self.name} - {self.sport}"
+
+
+class Interaction(models.Model):
+    scout = models.ForeignKey(User, on_delete=models.CASCADE)
+    athlete = models.ForeignKey(Athlete, on_delete=models.CASCADE)
+    action = models.CharField(max_length=20)  # e.g., 'shortlisted'
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.scout.username} {self.action} {self.athlete.name}"

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Matching Athletes</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f6f8;
+        }
+        .card {
+            border-radius: 15px;
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">📌 Top Matching Athletes</h2>
+
+        {% if results %}
+            <div class="row g-4">
+                {% for athlete in results %}
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card h-100 shadow-sm">
+                            <img src="https://via.placeholder.com/400x200?text=Athlete+Match" class="card-img-top" alt="Athlete">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ athlete.Name }}</h5>
+                                <p class="card-text mb-1"><strong>Sport:</strong> {{ athlete.Sport }}</p>
+                                <p class="card-text mb-1"><strong>Age:</strong> {{ athlete.Age }}</p>
+                                <p class="card-text mb-1"><strong>Gender:</strong> {{ athlete.Gender }}</p>
+                                <p class="card-text mb-1"><strong>City:</strong> {{ athlete.City }}</p>
+                                <p class="card-text mb-1"><strong>State:</strong> {{ athlete.State }}</p>
+                                <p class="card-text mb-1"><strong>Country:</strong> {{ athlete.Country }}</p>
+                                <p class="card-text mb-1"><strong>Level:</strong> {{ athlete.Level }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-warning text-center mt-4">
+                No matching athletes found. Try different filters!
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

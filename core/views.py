@@ -159,3 +159,35 @@ def ResetPassword(request, reset_id):
         return redirect('forgot-password')
     
     return render(request, 'reset_password.html')
+from .ml_model import athlete_profile  
+
+def profile_match_view(request):
+    if request.method == 'POST':
+        try:
+            # Collect all filter values from the form
+            filters = {
+                'sport': request.POST.get('sport'),
+                'age': request.POST.get('age'),
+                'gender': request.POST.get('gender'),
+                'city': request.POST.get('city'),
+                'state': request.POST.get('state'),
+                'level': request.POST.get('level'),
+            }
+
+            matches = athlete_profile.get_top_matches(filters)
+            return render(request, 'results.html', {'results': matches})
+
+        except Exception as e:
+            print(f"❌ Error in profile_match_view: {e}")
+            return render(request, 'results.html', {'results': []})
+
+    return render(request, 'match_form.html')
+from .ml_model.recommender import get_recommendations
+from .models import Interaction
+
+def recommendation_view(request):
+    scout_id = request.user.id  # assuming scout is logged in
+
+    recommendations = get_recommendations(scout_id)
+
+    return render(request, 'recommendations.html', {'recommendations': recommendations})
